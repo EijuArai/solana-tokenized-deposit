@@ -1,20 +1,3 @@
----
-post_title: Tokenized Deposit Demo
-author1: GitHub Copilot
-post_slug: tokenized-deposit-demo
-microsoft_alias: not-applicable
-featured_image: ""
-categories: []
-tags:
-  - solana
-  - token-2022
-  - typescript
-  - express
-ai_note: AI was used to help draft this walkthrough from the implemented code.
-summary: API-first demo for tokenized bank deposits with four Node.js services, a seeded ledger, and verified tokenize-transfer-redeem flows.
-post_date: 2026-04-06
----
-
 # Tokenized Deposit Demo
 
 ## Overview
