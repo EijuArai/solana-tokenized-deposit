@@ -1,0 +1,51 @@
+{
+  "name": "tokenized-deposit-demo",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "find . -name dist -type d -prune -exec rm -rf {} +",
+    "demo:run": "tsx scripts/run-demo.ts",
+    "solana:bootstrap": "tsx scripts/bootstrap-solana.ts",
+    "solana:build": "cd programs/solyen && anchor build",
+    "test:solana-execute": "SOLANA_RUNTIME=validator vitest run tests/solana-execute.test.ts",
+    "test:validator-demo": "npm run demo:run",
+    "dev:bank-core": "npm run dev --workspace @tokenized-deposit/bank-core",
+    "dev:core-gateway": "npm run dev --workspace @tokenized-deposit/core-gateway",
+    "dev:orchestrator": "npm run dev --workspace @tokenized-deposit/orchestrator",
+    "dev:rest-api": "npm run dev --workspace @tokenized-deposit/rest-api",
+    "dev": "concurrently -k \"npm run dev:bank-core\" \"npm run dev:core-gateway\" \"npm run dev:orchestrator\" \"npm run dev:rest-api\"",
+    "start:bank-core": "npm run start --workspace @tokenized-deposit/bank-core",
+    "start:core-gateway": "npm run start --workspace @tokenized-deposit/core-gateway",
+    "start:orchestrator": "npm run start --workspace @tokenized-deposit/orchestrator",
+    "start:rest-api": "npm run start --workspace @tokenized-deposit/rest-api",
+    "test": "vitest run",
+    "verify:demo": "tsx scripts/verify-demo.ts"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.32.1",
+    "@solana/spl-token": "^0.4.14",
+    "@solana/web3.js": "^1.98.4",
+    "better-sqlite3": "^12.0.0",
+    "express": "^5.1.0",
+    "zod": "^4.1.5"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.5.0",
+    "@types/supertest": "^6.0.3",
+    "concurrently": "^9.2.1",
+    "supertest": "^7.1.4",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./packages/shared" },
+    { "path": "./apps/bank-core" },
+    { "path": "./apps/core-gateway" },
+    { "path": "./apps/orchestrator" },
+    { "path": "./apps/rest-api" }
+  ]
+}
